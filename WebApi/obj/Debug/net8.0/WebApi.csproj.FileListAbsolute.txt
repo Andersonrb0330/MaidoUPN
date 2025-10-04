@@ -1,0 +1,7 @@
+D:\Maido\SlMaido\WebApi\obj\Debug\net8.0\WebApi.csproj.AssemblyReference.cache
+D:\Maido\SlMaido\WebApi\obj\Debug\net8.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Maido\SlMaido\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfoInputs.cache
+D:\Maido\SlMaido\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfo.cs
+D:\Maido\SlMaido\WebApi\obj\Debug\net8.0\WebApi.csproj.CoreCompileInputs.cache
+D:\Maido\SlMaido\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Maido\SlMaido\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
