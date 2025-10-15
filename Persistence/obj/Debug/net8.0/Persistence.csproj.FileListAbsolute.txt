@@ -15,3 +15,4 @@ D:\Maido\SlMaido\Persistence\obj\Debug\net8.0\refint\Persistence.dll
 D:\Maido\SlMaido\Persistence\obj\Debug\net8.0\Persistence.pdb
 D:\Maido\SlMaido\Persistence\obj\Debug\net8.0\Persistence.genruntimeconfig.cache
 D:\Maido\SlMaido\Persistence\obj\Debug\net8.0\ref\Persistence.dll
+D:\Maido\SlMaido\persistence\obj\Debug\net8.0\Persistence.sourcelink.json

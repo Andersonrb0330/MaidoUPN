@@ -30,7 +30,7 @@ namespace Persistence.Repositories
                                  .Include(ur => ur.Usuario)
                                  .Include(ur => ur.Rol)
                                  .FirstOrDefaultAsync(ur => ur.Id == id);
-            return usuarioRol;
+            return usuarioRol; 
         }
 
         public async Task Create(UsuarioRol usuarioRol)

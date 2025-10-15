@@ -12,7 +12,7 @@
         public DateTime UpdatedAt { get; set; }
 
         public int IdCliente { get; set; }
-        public Cliente Cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
         public ICollection<ReservaMesa> ReservaMesas { get; set; }
         public ICollection<Pedido> Pedidos { get; set; }

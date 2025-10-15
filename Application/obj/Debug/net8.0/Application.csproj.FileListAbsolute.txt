@@ -15,3 +15,4 @@ D:\Maido\SlMaido\Application\obj\Debug\net8.0\Application.dll
 D:\Maido\SlMaido\Application\obj\Debug\net8.0\refint\Application.dll
 D:\Maido\SlMaido\Application\obj\Debug\net8.0\Application.pdb
 D:\Maido\SlMaido\Application\obj\Debug\net8.0\ref\Application.dll
+D:\Maido\SlMaido\Application\obj\Debug\net8.0\Application.sourcelink.json
