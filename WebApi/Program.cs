@@ -1,13 +1,15 @@
 using Application.Extensions;
 using Persistence.Extensions;
+using WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-
+builder.Services.AddWebApiProject(builder.Configuration);
 builder.Services.AddPersistenceProject(builder.Configuration);
 // Add services to the container.
 builder.Services.AddAplicationProject();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -24,6 +26,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 

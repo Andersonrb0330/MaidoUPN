@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/reserva_mesa")]
     [ApiController]
     public class ReservaMesaController : ControllerBase
     {
