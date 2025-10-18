@@ -29,7 +29,9 @@ namespace WebApi.Controllers
         public async Task<ActionResult<CategoriaDto>> GetById(int id)
         {
             CategoriaDto categoriaDto = await _categoriaService.GetById(id);
-            return categoriaDto;
+            return categoriaDto == null
+                ? NotFound("No se encontro la categoria")
+                : Ok(categoriaDto);
         }
 
         [HttpPost]
