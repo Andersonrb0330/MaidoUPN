@@ -25,6 +25,11 @@ namespace Persistence.Configurations
                  .HasColumnName("IdReserva")
                  .IsRequired();
 
+            builder.Property(p => p.Total)
+               .HasColumnName("Total")
+               .HasColumnType("decimal(10,2)")
+               .IsRequired();
+
             builder.Property(p => p.IdCliente)
                 .HasColumnName("IdCliente"); 
 

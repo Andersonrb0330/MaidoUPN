@@ -12,6 +12,18 @@ namespace Persistence.Configurations
             builder.ToTable("Reserva");
             builder.HasKey(r => r.Id);
 
+            builder.Property(r => r.NombreCompleto)
+                .HasColumnName("NombreCompleto")
+                .HasMaxLength(80)
+                .IsUnicode(false)
+                .IsRequired();
+
+            builder.Property(c => c.CorreoElectronico)
+                .HasColumnName("CorreoElectronico")
+                .HasMaxLength(80)
+                .IsUnicode(false)
+                .IsRequired();
+
             builder.Property(r => r.Fecha)
                 .HasColumnName("Fecha")
                 .IsRequired();

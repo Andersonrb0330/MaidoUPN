@@ -41,13 +41,13 @@ namespace Application.Implementations
         {
             Reserva reserva = new Reserva
             {
+                NombreCompleto = reservaParametroDto.NombreCompleto,
+                CorreoElectronico = reservaParametroDto.CorreoElectronico,
                 Fecha = reservaParametroDto.Fecha,
                 Hora = reservaParametroDto.Hora,
                 CantidadPersonas = reservaParametroDto.CantidadPersonas,
                 Estado = reservaParametroDto.Estado,
                 Notas = reservaParametroDto.Notas,
-                CreatedAt = reservaParametroDto.CreatedAt,
-                UpdatedAt = reservaParametroDto.UpdatedAt,
                 IdCliente = reservaParametroDto.IdCliente,
             };
 
@@ -63,14 +63,14 @@ namespace Application.Implementations
             {
                 throw new Exception($"No existe reserva con este ID:{reservaParametroDto.Id}");
             }
-
+            
+            reserva.NombreCompleto = reservaParametroDto.NombreCompleto;
+            reserva.CorreoElectronico = reservaParametroDto.CorreoElectronico;
             reserva.Fecha = reservaParametroDto.Fecha;
             reserva.Hora = reservaParametroDto.Hora;
             reserva.CantidadPersonas = reservaParametroDto.CantidadPersonas;
             reserva.Estado = reservaParametroDto.Estado;
             reserva.Notas = reservaParametroDto.Notas;
-            reserva.CreatedAt = reservaParametroDto.CreatedAt;
-            reserva.UpdatedAt = reservaParametroDto.UpdatedAt;
             reserva.IdCliente = reservaParametroDto.IdCliente;
 
             await _unitOfWork.SaveChangesAsync();

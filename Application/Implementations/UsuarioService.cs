@@ -45,7 +45,6 @@ namespace Application.Implementations
                 Email = usuarioParametroDto.Email,
                 Password = usuarioParametroDto.Password,
                 Estado = usuarioParametroDto.Estado,
-                CreadoEn = usuarioParametroDto.CreadoEn,
             };
 
             await _usuarioRepository.Create(usuario);
@@ -65,7 +64,6 @@ namespace Application.Implementations
             usuario.Email = usuarioParametroDto.Email;
             usuario.Password = usuarioParametroDto.Password;
             usuario.Estado = usuarioParametroDto.Estado;
-            usuario.CreadoEn = usuarioParametroDto.CreadoEn;
 
             await _unitOfWork.SaveChangesAsync();
         }

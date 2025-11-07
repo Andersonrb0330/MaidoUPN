@@ -34,9 +34,6 @@ namespace Persistence.Configurations
                 .HasMaxLength(10)
                 .IsUnicode(false);
 
-            builder.Property(u => u.CreadoEn)
-                .HasColumnName("CreadoEn");
-
         }
     }
 }

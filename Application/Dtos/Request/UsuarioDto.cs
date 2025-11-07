@@ -10,7 +10,6 @@ namespace Application.Dtos.Request
         public string Email { get; set; }
         public string Password { get; set; }
         public string Estado { get; set; }
-        public DateTime CreadoEn { get; set; }
     }
     public class UsuarioProfile : Profile
     {

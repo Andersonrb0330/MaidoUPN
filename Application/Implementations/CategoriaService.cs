@@ -55,7 +55,7 @@ namespace Application.Implementations
             Categoria categoria = await _categoriaRepository.GetById(categoriaParametroDto.Id);
             if (categoria == null)
             {
-                throw new Exception($"No existe categoria con este ID:{categoriaParametroDto.Id}");
+                throw new  Exception($"No existe categoria con este ID:{categoriaParametroDto.Id}");
             }
 
             categoria.Nombre = categoriaParametroDto.Nombre;

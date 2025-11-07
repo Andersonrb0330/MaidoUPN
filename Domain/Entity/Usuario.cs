@@ -7,7 +7,6 @@
         public string Email { get; set; }
         public string Password { get; set; }
         public string Estado { get; set; }
-        public DateTime CreadoEn { get; set; }
         public ICollection<UsuarioRol> UsuarioRols { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace Application.Dtos.Request
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
         public string Estado { get; set; }
-
+        public double Total { get; set; }
         public int IdReserva { get; set; }
         public ReservaDto Reserva { get; set; }
 
