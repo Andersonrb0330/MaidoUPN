@@ -45,6 +45,7 @@ namespace Application.Implementations
                 Capacidad = mesaParametroDto.Capacidad,
                 Ubicacion = mesaParametroDto.Ubicacion,
                 Estado = mesaParametroDto.Estado,
+                Piso = mesaParametroDto.Piso,
             };
 
             await _mesaRepository.Create(mesa);
@@ -64,6 +65,8 @@ namespace Application.Implementations
             mesa.Capacidad = mesaParametroDto.Capacidad;
             mesa.Ubicacion = mesaParametroDto.Ubicacion;
             mesa.Estado = mesaParametroDto.Estado;
+            mesa.Piso = mesaParametroDto.Piso;
+
             await _unitOfWork.SaveChangesAsync();
         }
 

@@ -30,6 +30,10 @@ namespace Persistence.Configurations
                 .HasMaxLength(20)
                 .IsUnicode(false);
 
+            builder.Property(m => m.Piso)
+              .HasColumnName("Piso")
+              .IsRequired();
+
         }
     }
 }
