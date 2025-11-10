@@ -22,7 +22,6 @@ namespace Persistence.Extensions
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-            services.AddTransient<IClienteRespoitory, ClienteRepository>();
             services.AddTransient<IExperienciaRepository, ExperienciaRepository>();
             services.AddTransient<IHistoriaClienteRepository, HistorialClienteRepository>();
             services.AddTransient<IMesaRepository, MesaRepository>();

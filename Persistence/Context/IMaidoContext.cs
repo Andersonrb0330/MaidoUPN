@@ -6,7 +6,6 @@ namespace Persistence.Context
     public interface IMaidoContext
     {
         DbSet<Categoria> Categorias { get; set; }
-        DbSet<Cliente> Clientes { get; set; }
         DbSet<Experiencia> Experiencias { get; set; }
         DbSet<HistorialCliente> HistorialClientes { get; set; }
         DbSet<Mesa> Mesas { get; set; }

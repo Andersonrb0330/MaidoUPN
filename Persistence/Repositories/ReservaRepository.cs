@@ -18,7 +18,6 @@ namespace Persistence.Repositories
         public async Task<List<Reserva>> GetAll()
         {
             List<Reserva> listReserva = await _maidoContext.Reservas
-                                            .Include(r => r.Cliente)
                                             .ToListAsync();
             return listReserva;
         }
@@ -26,7 +25,6 @@ namespace Persistence.Repositories
         public async Task<Reserva> GetById(int id)
         {
             Reserva reserva = await _maidoContext.Reservas
-                                 .Include(r => r.Cliente)
                                  .FirstOrDefaultAsync(r => r.Id == id);
             return reserva;
         }

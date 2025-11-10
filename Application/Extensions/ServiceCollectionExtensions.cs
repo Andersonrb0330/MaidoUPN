@@ -12,7 +12,6 @@ namespace Application.Extensions
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddTransient<ICategoriaService, CategoriaService>();
-            services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<IExperienciaService, ExperienciaService>();
             services.AddTransient<IHistorialClienteService, HistorialClienteService>();
             services.AddTransient<IMesaService, MesaService>();

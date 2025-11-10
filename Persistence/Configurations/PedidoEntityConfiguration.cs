@@ -30,16 +30,9 @@ namespace Persistence.Configurations
                .HasColumnType("decimal(10,2)")
                .IsRequired();
 
-            builder.Property(p => p.IdCliente)
-                .HasColumnName("IdCliente"); 
-
             builder.HasOne(p => p.Reserva)
                 .WithMany(r => r.Pedidos)
                 .HasForeignKey(p => p.IdReserva);
-
-            builder.HasOne(p => p.Cliente)
-                .WithMany(c => c.Pedidos)
-                .HasForeignKey(p => p.IdCliente);
 
         }
     }

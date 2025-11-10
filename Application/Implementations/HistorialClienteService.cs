@@ -43,7 +43,7 @@ namespace Application.Implementations
             {
                 FechaVisita = historialClienteParametroDto.FechaVisita,
                 Observaciones = historialClienteParametroDto.Observaciones,
-                IdCliente = historialClienteParametroDto.IdCliente,
+                IdReserva = historialClienteParametroDto.IdReserva,
             };
 
             await _historiaClienteRepository.Create(historialCliente);
@@ -61,7 +61,7 @@ namespace Application.Implementations
 
             historialCliente.FechaVisita = historialClienteParametroDto.FechaVisita;
             historialCliente.Observaciones = historialClienteParametroDto.Observaciones;
-            historialCliente.IdCliente = historialClienteParametroDto.IdCliente;
+            historialCliente.IdReserva = historialClienteParametroDto.IdReserva;
             await _unitOfWork.SaveChangesAsync();
         }
 

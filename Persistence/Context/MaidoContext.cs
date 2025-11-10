@@ -10,7 +10,6 @@ namespace Persistence.Context
         }
 
         public DbSet<Categoria> Categorias { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Experiencia> Experiencias { get; set; }
         public DbSet<HistorialCliente> HistorialClientes { get; set; }
         public DbSet<Mesa> Mesas { get; set; }

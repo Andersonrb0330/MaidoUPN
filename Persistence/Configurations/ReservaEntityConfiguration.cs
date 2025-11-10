@@ -28,6 +28,18 @@ namespace Persistence.Configurations
                 .HasColumnName("Fecha")
                 .IsRequired();
 
+            builder.Property(r => r.Telefono)
+               .HasColumnName("Telefono")
+               .HasMaxLength(20)
+               .IsUnicode(false)
+               .IsRequired();
+
+            builder.Property(r => r.Dni)
+               .HasColumnName("Dni")
+               .HasMaxLength(8)
+               .IsUnicode(false)
+               .IsRequired();
+
             builder.Property(r => r.Hora)
                 .HasColumnName("Hora")
                 .IsRequired();
@@ -36,23 +48,10 @@ namespace Persistence.Configurations
                 .HasColumnName("CantidadPersonas")
                 .IsRequired();
 
-            builder.Property(r => r.Estado)
-                .HasColumnName("Estado")
-                .HasMaxLength(20)
-                .IsUnicode(false);
-
             builder.Property(r => r.Notas)
                 .HasColumnName("Notas")
                 .HasMaxLength(250)
                 .IsUnicode(false);
-
-            builder.Property(r => r.IdCliente)
-                .HasColumnName("IdCliente")
-                .IsRequired();
-
-            builder.HasOne(r => r.Cliente)
-                .WithMany(c => c.Reservas)
-                .HasForeignKey(r => r.IdCliente);
         }
     }
 }

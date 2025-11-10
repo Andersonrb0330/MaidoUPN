@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
@@ -11,9 +12,11 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MaidoContext))]
-    partial class MaidoContextModelSnapshot : ModelSnapshot
+    [Migration("20251110013924_cambioEnReservaCliente")]
+    partial class cambioEnReservaCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,10 +257,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Dni")
                         .IsRequired()
-                        .HasMaxLength(8)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(8)")
-                        .HasColumnName("Dni");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2")
@@ -283,10 +283,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Telefono")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(20)")
-                        .HasColumnName("Telefono");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -6,8 +6,8 @@
         public DateTime FechaVisita { get; set; }
         public string Observaciones { get; set; }
 
-        public int IdCliente { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        public int IdReserva { get; set; }
+        public virtual Reserva Reserva { get; set; }
 
     }
 }

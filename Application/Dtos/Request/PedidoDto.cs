@@ -11,9 +11,6 @@ namespace Application.Dtos.Request
         public double Total { get; set; }
         public int IdReserva { get; set; }
         public ReservaDto Reserva { get; set; }
-
-        public int? IdCliente { get; set; }
-        public ClienteDto Cliente { get; set; }
     }
     public class PedidoProfile : Profile
     {

@@ -9,6 +9,5 @@ namespace Application.Dtos.Response
         public string Estado { get; set; }
         public double Total { get; set; }
         public int IdReserva { get; set; }
-        public int? IdCliente { get; set; }
     }
 }

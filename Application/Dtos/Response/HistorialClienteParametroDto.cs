@@ -8,6 +8,6 @@ namespace Application.Dtos.Response
         public DateTime FechaVisita { get; set; }
         public string Observaciones { get; set; }
 
-        public int IdCliente { get; set; }
+        public int IdReserva { get; set; }
     }
 }

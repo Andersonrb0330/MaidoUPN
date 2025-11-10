@@ -9,8 +9,8 @@ namespace Application.Dtos.Request
         public DateTime FechaVisita { get; set; }
         public string Observaciones { get; set; }
 
-        public int IdCliente { get; set; }
-        public ClienteDto Cliente { get; set; }
+        public int IdReserva { get; set; }
+        public ReservaDto Rerserva { get; set; }
     }
 
     public class HistorialClienteProfile : Profile

@@ -18,7 +18,7 @@ namespace Persistence.Repositories
         public async Task<List<HistorialCliente>> GetAll()
         {
             List<HistorialCliente> listHistorialClientes = await _maidoContext.HistorialClientes
-                                            .Include(h => h.Cliente)
+                                            .Include(h => h.Reserva)
                                             .ToListAsync();
             return listHistorialClientes;
         }
@@ -26,7 +26,7 @@ namespace Persistence.Repositories
         public async Task<HistorialCliente> GetById(int id)
         {
             HistorialCliente historialCliente = await _maidoContext.HistorialClientes
-                                 .Include(h => h.Cliente)
+                                 .Include(h => h.Reserva)
                                  .FirstOrDefaultAsync(h => h.Id == id);
             return historialCliente;
         }

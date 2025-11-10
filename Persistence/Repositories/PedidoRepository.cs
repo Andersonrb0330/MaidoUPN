@@ -19,7 +19,6 @@ namespace Persistence.Repositories
         {
             List<Pedido> listPedidos = await _maidoContext.Pedidos
                                             .Include(p => p.Reserva)
-                                            .Include(p => p.Cliente)
                                             .ToListAsync();
             return listPedidos;
         }
@@ -28,7 +27,6 @@ namespace Persistence.Repositories
         {
             Pedido Pedido = await _maidoContext.Pedidos
                                  .Include(p => p.Reserva)
-                                 .Include(p => p.Cliente)
                                  .FirstOrDefaultAsync(p => p.Id == id);
             return Pedido;
         }

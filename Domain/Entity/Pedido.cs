@@ -8,8 +8,6 @@
         public double Total { get; set; }
         public int IdReserva { get; set; }
         public virtual Reserva Reserva { get; set; }
-        public int? IdCliente { get; set; }
-        public virtual Cliente Cliente { get; set; }
 
         public ICollection<PedidoDetalle> PedidoDetalles { get; set; }
     }

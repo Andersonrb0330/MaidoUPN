@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
@@ -11,9 +12,11 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MaidoContext))]
-    partial class MaidoContextModelSnapshot : ModelSnapshot
+    [Migration("20251110005139_Reserva_camposEliminados")]
+    partial class Reserva_camposEliminados
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,6 +50,70 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categoria", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entity.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Alergias")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApellidoMaterno")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("ApellidoMaterno");
+
+                    b.Property<string>("ApellidoPaterno")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("ApellidoPaterno");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Email");
+
+                    b.Property<DateTime?>("FechaNacimiento")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("FechaNacimiento");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("FechaRegistro");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Nombre");
+
+                    b.Property<string>("Preferencias")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Telefono");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cliente", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entity.Experiencia", b =>
@@ -102,9 +169,9 @@ namespace Persistence.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("FechaVisita");
 
-                    b.Property<int>("IdReserva")
+                    b.Property<int>("IdCliente")
                         .HasColumnType("int")
-                        .HasColumnName("IdReserva");
+                        .HasColumnName("IdCliente");
 
                     b.Property<string>("Observaciones")
                         .IsRequired()
@@ -115,7 +182,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdReserva");
+                    b.HasIndex("IdCliente");
 
                     b.ToTable("HistorialCliente", (string)null);
                 });
@@ -178,6 +245,10 @@ namespace Persistence.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("Fecha");
 
+                    b.Property<int?>("IdCliente")
+                        .HasColumnType("int")
+                        .HasColumnName("IdCliente");
+
                     b.Property<int>("IdReserva")
                         .HasColumnType("int")
                         .HasColumnName("IdReserva");
@@ -187,6 +258,8 @@ namespace Persistence.Migrations
                         .HasColumnName("Total");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdCliente");
 
                     b.HasIndex("IdReserva");
 
@@ -245,19 +318,15 @@ namespace Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("CantidadPersonas");
 
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CorreoElectronico")
                         .IsRequired()
                         .HasMaxLength(80)
                         .IsUnicode(false)
                         .HasColumnType("varchar(80)")
                         .HasColumnName("CorreoElectronico");
-
-                    b.Property<string>("Dni")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(8)")
-                        .HasColumnName("Dni");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2")
@@ -281,14 +350,9 @@ namespace Persistence.Migrations
                         .HasColumnType("varchar(250)")
                         .HasColumnName("Notas");
 
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(20)")
-                        .HasColumnName("Telefono");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("Reserva", (string)null);
                 });
@@ -416,22 +480,28 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entity.HistorialCliente", b =>
                 {
-                    b.HasOne("Domain.Entity.Reserva", "Reserva")
+                    b.HasOne("Domain.Entity.Cliente", "Cliente")
                         .WithMany("HistorialClientes")
-                        .HasForeignKey("IdReserva")
+                        .HasForeignKey("IdCliente")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Reserva");
+                    b.Navigation("Cliente");
                 });
 
             modelBuilder.Entity("Domain.Entity.Pedido", b =>
                 {
+                    b.HasOne("Domain.Entity.Cliente", "Cliente")
+                        .WithMany("Pedidos")
+                        .HasForeignKey("IdCliente");
+
                     b.HasOne("Domain.Entity.Reserva", "Reserva")
                         .WithMany("Pedidos")
                         .HasForeignKey("IdReserva")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cliente");
 
                     b.Navigation("Reserva");
                 });
@@ -453,6 +523,13 @@ namespace Persistence.Migrations
                     b.Navigation("Experiencia");
 
                     b.Navigation("Pedido");
+                });
+
+            modelBuilder.Entity("Domain.Entity.Reserva", b =>
+                {
+                    b.HasOne("Domain.Entity.Cliente", null)
+                        .WithMany("Reservas")
+                        .HasForeignKey("ClienteId");
                 });
 
             modelBuilder.Entity("Domain.Entity.ReservaMesa", b =>
@@ -498,6 +575,15 @@ namespace Persistence.Migrations
                     b.Navigation("Experiencias");
                 });
 
+            modelBuilder.Entity("Domain.Entity.Cliente", b =>
+                {
+                    b.Navigation("HistorialClientes");
+
+                    b.Navigation("Pedidos");
+
+                    b.Navigation("Reservas");
+                });
+
             modelBuilder.Entity("Domain.Entity.Experiencia", b =>
                 {
                     b.Navigation("PedidoDetalles");
@@ -515,8 +601,6 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entity.Reserva", b =>
                 {
-                    b.Navigation("HistorialClientes");
-
                     b.Navigation("Pedidos");
 
                     b.Navigation("ReservaMesas");

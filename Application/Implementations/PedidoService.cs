@@ -44,7 +44,6 @@ namespace Application.Implementations
                 Fecha = pedidoParametroDto.Fecha,
                 Estado = pedidoParametroDto.Estado,
                 IdReserva = pedidoParametroDto.IdReserva,
-                IdCliente = pedidoParametroDto.IdCliente,
             };
 
             await _pedidoRepository.Create(Pedido);
@@ -63,7 +62,6 @@ namespace Application.Implementations
             pedido.Fecha = pedidoParametroDto.Fecha;
             pedido.Estado = pedidoParametroDto.Estado;
             pedido.IdReserva = pedidoParametroDto.IdReserva;
-            pedido.IdCliente = pedidoParametroDto.IdCliente;
             await _unitOfWork.SaveChangesAsync();
         }
 

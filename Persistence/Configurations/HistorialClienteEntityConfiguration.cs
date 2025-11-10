@@ -21,13 +21,13 @@ namespace Persistence.Configurations
                 .HasMaxLength(500)
                 .IsUnicode(false);
 
-            builder.Property(h => h.IdCliente)
-                .HasColumnName("IdCliente")
+            builder.Property(h => h.IdReserva)
+                .HasColumnName("IdReserva")
                 .IsRequired();
 
-            builder.HasOne(h => h.Cliente)
+            builder.HasOne(h => h.Reserva)
                 .WithMany(c => c.HistorialClientes)
-                .HasForeignKey(h => h.IdCliente);
+                .HasForeignKey(h => h.IdReserva);
         }
     }
 }
