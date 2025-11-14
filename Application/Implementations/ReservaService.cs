@@ -47,6 +47,9 @@ namespace Application.Implementations
                 Hora = reservaParametroDto.Hora,
                 CantidadPersonas = reservaParametroDto.CantidadPersonas,
                 Notas = reservaParametroDto.Notas,
+                Telefono = reservaParametroDto.Telefono,
+                Dni = reservaParametroDto.Dni,
+
             };
 
             await _reservaRepository.Create(reserva);
@@ -68,6 +71,8 @@ namespace Application.Implementations
             reserva.Hora = reservaParametroDto.Hora;
             reserva.CantidadPersonas = reservaParametroDto.CantidadPersonas;
             reserva.Notas = reservaParametroDto.Notas;
+            reserva.Telefono = reservaParametroDto.Telefono;
+            reserva.Dni = reservaParametroDto.Dni;
 
             await _unitOfWork.SaveChangesAsync();
         }

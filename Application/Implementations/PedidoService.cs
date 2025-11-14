@@ -41,6 +41,7 @@ namespace Application.Implementations
         {
             Pedido Pedido = new Pedido
             {
+                Total = pedidoParametroDto.Total,
                 Fecha = pedidoParametroDto.Fecha,
                 Estado = pedidoParametroDto.Estado,
                 IdReserva = pedidoParametroDto.IdReserva,
@@ -61,6 +62,7 @@ namespace Application.Implementations
 
             pedido.Fecha = pedidoParametroDto.Fecha;
             pedido.Estado = pedidoParametroDto.Estado;
+            pedido.Total = pedidoParametroDto.Total;
             pedido.IdReserva = pedidoParametroDto.IdReserva;
             await _unitOfWork.SaveChangesAsync();
         }

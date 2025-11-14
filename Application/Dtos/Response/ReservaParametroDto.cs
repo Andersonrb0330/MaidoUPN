@@ -11,5 +11,7 @@ namespace Application.Dtos.Response
         public TimeSpan Hora { get; set; }
         public int CantidadPersonas { get; set; }
         public string Notas { get; set; }
+        public string Telefono { get; set; }
+        public string Dni { get; set; }
     }
 }
